@@ -1,0 +1,28 @@
+﻿using Data.Models;
+using MyFinance.Data.Infrastructure;
+using Service.Pattern;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Service
+{
+    public class QuestionService : Service<question>
+    {
+        public static IDatabaseFactory db = new DatabaseFactory();
+        public static IUnitOfWork u = new UnitOfWork(db);
+
+        public QuestionService() : base(u)
+        { }
+
+        public IEnumerable<question> getTestById(int id)
+        {
+
+            return u.getRepository<question>()
+                .GetMany(x => x.idQuestion == id);
+        }
+
+    }
+}
