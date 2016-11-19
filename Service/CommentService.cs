@@ -18,7 +18,7 @@ namespace Service
         }
 
 
-        public IEnumerable<comment> getTestById(int id)
+     /*   public IEnumerable<comment> getTestById(int id)
         {
 
             return u.getRepository<comment>()
@@ -30,7 +30,7 @@ namespace Service
 
             return u.getRepository<comment>()
                 .GetMany();
-        }
+        }*/
 
     }
 }

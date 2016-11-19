@@ -15,14 +15,14 @@ namespace WebApp.Controllers
         public ActionResult Index()
         {
             CommentService commserv = new CommentService();
-            IEnumerable<comment> listecomment = commserv.getTestById(3);
+            IEnumerable<comment> listecomment = commserv.GetMany();
             return View(listecomment);
         }
 
         public ActionResult liste()
         {
             CommentService commserv = new CommentService();
-            IEnumerable<comment> listecomment = commserv.getAll();
+            IEnumerable<comment> listecomment = commserv.GetMany();
             return View(listecomment);
 
         }
