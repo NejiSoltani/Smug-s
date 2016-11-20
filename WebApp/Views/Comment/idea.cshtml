@@ -1,0 +1,102 @@
+﻿@model IEnumerable<Data.Models.idea>
+
+@{
+    ViewBag.Title = "idea";
+}
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <a href="index.html">Home</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <a href="#">Posts</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <span>Commentaires</span>
+        </li>
+    </ul>
+    <div class="page-toolbar">
+        <div class="btn-group pull-right">
+            <button type="button" class="btn green btn-sm btn-outline dropdown-toggle" data-toggle="dropdown">
+                Actions
+                <i class="fa fa-angle-down"></i>
+            </button>
+            <ul class="dropdown-menu pull-right" role="menu">
+                <li>
+                    <a href="#">
+                        <i class="icon-bell"></i> Action
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="icon-shield"></i> Another action
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="icon-user"></i> Something else here
+                    </a>
+                </li>
+                <li class="divider"> </li>
+                <li>
+                    <a href="#">
+                        <i class="icon-bag"></i> Separated link
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<h3 class="page-title">
+    Commentaires
+    <small>liste</small>
+</h3>
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light portlet-fit bordered">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class=" icon-layers font-green"></i>
+                    <span class="caption-subject font-green bold uppercase">News</span>
+                    <div class="caption-desc font-grey-cascade"> Default list element style. Activate by adding <pre class="mt-code">.list-news</pre> class to the <pre class="mt-code">ul</pre> element. </div>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div class="mt-element-list">
+                    <div class="mt-list-head list-news font-white bg-blue">
+                        <div class="list-head-title-container">
+                            <span class="badge badge-primary pull-right">3</span>
+                            <h3 class="list-title">News List</h3>
+                        </div>
+                    </div>
+                    <div class="mt-list-container list-news">
+                        <ul>
+@foreach (var item in Model)
+{
+                            <li class="mt-list-item">
+                                <div class="list-icon-container">
+                                    <a href="/Comment/ideacomment/@Html.DisplayFor(modelItem => item.idIdea)">
+                                        <i class="fa fa-angle-right"></i>
+                                    </a>
+                                </div>
+                                <div class="list-datetime bold uppercase font-green"> @Html.DisplayFor(modelItem => item.dateDepot) </div>
+                                <div class="list-item-content">
+                                    <h3 class="uppercase">
+                                        <a href="/Comment/ideacomment/@Html.DisplayFor(modelItem => item.idIdea)">@Html.DisplayFor(modelItem => item.subject)</a>
+                                    </h3>
+                                    <p>@Html.DisplayFor(modelItem => item.content)</p>
+                                </div>
+                            </li>
+}
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

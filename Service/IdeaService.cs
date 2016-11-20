@@ -17,12 +17,5 @@ namespace Service
         public IdeaService() : base(u)
         { }
 
-        public IEnumerable<idea> getTestById(int id)
-        {
-
-            return u.getRepository<idea>()
-                .GetMany(x => x.idIdea == id);
-        }
-
     }
 }

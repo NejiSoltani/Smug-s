@@ -4,6 +4,7 @@ using Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -23,6 +24,46 @@ namespace WebApp.Controllers
         {
             CommentService commserv = new CommentService();
             IEnumerable<comment> listecomment = commserv.GetMany();
+            return View(listecomment);
+
+        }
+
+        public ActionResult photo()
+        {
+            PhotoService photserv = new PhotoService();
+            IEnumerable<photo> listephoto = photserv.GetMany();
+            return View(listephoto);
+
+        }
+
+        public ActionResult photocomment(int id)
+        {
+            CommentService commserv = new CommentService();
+            IEnumerable<comment> listecomment = commserv.GetMany(x => x.photo_idPhoto == id);
+            return View(listecomment);
+
+        }
+
+        public ActionResult idea()
+        {
+            IdeaService ideaserv = new IdeaService();
+            IEnumerable<idea> listeidea = ideaserv.GetMany();
+            return View(listeidea);
+
+        }
+
+        public ActionResult ideacomment(int id)
+        {
+            CommentService commserv = new CommentService();
+            IEnumerable<comment> listecomment = commserv.GetMany(x => x.idea_idIdea == id);
+            return View(listecomment);
+
+        }
+
+        public ActionResult report()
+        {
+            CommentService commserv = new CommentService();
+            IEnumerable<comment> listecomment = commserv.GetMany(x => x.reported == true);
             return View(listecomment);
 
         }
@@ -80,6 +121,13 @@ namespace WebApp.Controllers
         // GET: Comment/Delete/5
         public ActionResult Delete(int id)
         {
+
+            CommentService commserv = new CommentService();
+            comment c = new comment();
+            c = commserv.GetById(id);
+            commserv.Delete(c);
+            commserv.Commit();
+            commserv.Dispose();
             return View();
         }
 
@@ -90,8 +138,14 @@ namespace WebApp.Controllers
             try
             {
                 // TODO: Add delete logic here
+                CommentService commserv = new CommentService();
+                comment c = new comment();
+                c = commserv.GetById(id);
+                commserv.Delete(c);
+                commserv.Commit();
+                commserv.Dispose();
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Create");
             }
             catch
             {

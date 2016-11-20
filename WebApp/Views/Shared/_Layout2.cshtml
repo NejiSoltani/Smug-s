@@ -24,7 +24,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <meta content="" name="description" />
     <meta content="" name="author" />
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
-  
+
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
     @Styles.Render("~/GLOBAL/MANDATORY/STYLES/s")
     <!-- END GLOBAL MANDATORY STYLES -->
@@ -39,6 +39,7 @@ License: You must have a valid license purchased only from themeforest(the above
     @Styles.Render("~/THEME/LAYOUT/STYLES/s")
     <!-- END THEME LAYOUT STYLES -->
     <link rel="shortcut icon" href="favicon.ico" />
+
 </head>
 <!-- END HEAD -->
 <body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white page-md">
@@ -49,7 +50,7 @@ License: You must have a valid license purchased only from themeforest(the above
             <!-- BEGIN LOGO -->
             <div class="page-logo">
                 <a href="index.html">
-                    <img src="../assets/layouts/layout/img/logo.png" alt="logo" class="logo-default" />
+                    <img src="~/assets/layouts/layout/img/logo.png" alt="logo" class="logo-default" />
                 </a>
                 <div class="menu-toggler sidebar-toggler"> </div>
             </div>
@@ -191,7 +192,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                     <li>
                                         <a href="#">
                                             <span class="photo">
-                                                <img src="../assets/layouts/layout3/img/avatar2.jpg" class="img-circle" alt="">
+                                                <img src="~/assets/layouts/layout3/img/avatar2.jpg" class="img-circle" alt="">
                                             </span>
                                             <span class="subject">
                                                 <span class="from"> Lisa Wong </span>
@@ -203,7 +204,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                     <li>
                                         <a href="#">
                                             <span class="photo">
-                                                <img src="../assets/layouts/layout3/img/avatar3.jpg" class="img-circle" alt="">
+                                                <img src="~/assets/layouts/layout3/img/avatar3.jpg" class="img-circle" alt="">
                                             </span>
                                             <span class="subject">
                                                 <span class="from"> Richard Doe </span>
@@ -215,7 +216,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                     <li>
                                         <a href="#">
                                             <span class="photo">
-                                                <img src="../assets/layouts/layout3/img/avatar1.jpg" class="img-circle" alt="">
+                                                <img src="~/assets/layouts/layout3/img/avatar1.jpg" class="img-circle" alt="">
                                             </span>
                                             <span class="subject">
                                                 <span class="from"> Bob Nilson </span>
@@ -227,7 +228,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                     <li>
                                         <a href="#">
                                             <span class="photo">
-                                                <img src="../assets/layouts/layout3/img/avatar2.jpg" class="img-circle" alt="">
+                                                <img src="~/assets/layouts/layout3/img/avatar2.jpg" class="img-circle" alt="">
                                             </span>
                                             <span class="subject">
                                                 <span class="from"> Lisa Wong </span>
@@ -239,7 +240,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                     <li>
                                         <a href="#">
                                             <span class="photo">
-                                                <img src="../assets/layouts/layout3/img/avatar3.jpg" class="img-circle" alt="">
+                                                <img src="~/assets/layouts/layout3/img/avatar3.jpg" class="img-circle" alt="">
                                             </span>
                                             <span class="subject">
                                                 <span class="from"> Richard Doe </span>
@@ -370,7 +371,7 @@ License: You must have a valid license purchased only from themeforest(the above
                     <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
                     <li class="dropdown dropdown-user">
                         <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                            <img alt="" class="img-circle" src="../assets/layouts/layout/img/avatar3_small.jpg" />
+                            <img alt="" class="img-circle" src="~/assets/layouts/layout/img/avatar3_small.jpg" />
                             <span class="username username-hide-on-mobile"> Nick </span>
                             <i class="fa fa-angle-down"></i>
                         </a>
@@ -482,24 +483,16 @@ License: You must have a valid license purchased only from themeforest(the above
                         </a>
                         <ul class="sub-menu">
                             <li class="nav-item  ">
-                                <a class="nav-link" href="/Comment/liste"><span class='title'>Liste </span></a>
-                                
-                                   
-                               
+                                <a class="nav-link" href="/comment/photo"><span class='title'>Photo comments </span></a>
 
-                                 
-</li>
-
-                            <li class="nav-item  ">
-                                <a href="javascript:;" class="nav-link ">
-                                    <span class="title">Soustitre2</span>
-                                </a>
                             </li>
 
                             <li class="nav-item  ">
-                                <a href="javascript:;" class="nav-link ">
-                                    <span class="title">Soustitre3</span>
-                                </a>
+                                <a class="nav-link" href="/comment/idea"><span class='title'>Idea comments </span></a>
+                            </li>
+
+                            <li class="nav-item  ">
+                                <a class="nav-link" href="/comment/report"><span class='title'>Reported comments </span></a>
                             </li>
                         </ul>
 
@@ -670,7 +663,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                     </div>
                                     <div class="page-quick-sidebar-chat-user-messages">
                                         <div class="post out">
-                                            <img class="avatar" alt="" src="../assets/layouts/layout/img/avatar3.jpg" />
+                                            <img class="avatar" alt="" src="~/assets/layouts/layout/img/avatar3.jpg" />
                                             <div class="message">
                                                 <span class="arrow"></span>
                                                 <a href="javascript:;" class="name">Bob Nilson</a>
@@ -679,7 +672,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                             </div>
                                         </div>
                                         <div class="post in">
-                                            <img class="avatar" alt="" src="../assets/layouts/layout/img/avatar2.jpg" />
+                                            <img class="avatar" alt="" src="~/assets/layouts/layout/img/avatar2.jpg" />
                                             <div class="message">
                                                 <span class="arrow"></span>
                                                 <a href="javascript:;" class="name">Ella Wong</a>
@@ -688,7 +681,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                             </div>
                                         </div>
                                         <div class="post out">
-                                            <img class="avatar" alt="" src="../assets/layouts/layout/img/avatar3.jpg" />
+                                            <img class="avatar" alt="" src="~/assets/layouts/layout/img/avatar3.jpg" />
                                             <div class="message">
                                                 <span class="arrow"></span>
                                                 <a href="javascript:;" class="name">Bob Nilson</a>
@@ -697,7 +690,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                             </div>
                                         </div>
                                         <div class="post in">
-                                            <img class="avatar" alt="" src="../assets/layouts/layout/img/avatar2.jpg" />
+                                            <img class="avatar" alt="" src="~/assets/layouts/layout/img/avatar2.jpg" />
                                             <div class="message">
                                                 <span class="arrow"></span>
                                                 <a href="javascript:;" class="name">Ella Wong</a>
@@ -706,7 +699,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                             </div>
                                         </div>
                                         <div class="post out">
-                                            <img class="avatar" alt="" src="../assets/layouts/layout/img/avatar3.jpg" />
+                                            <img class="avatar" alt="" src="~/assets/layouts/layout/img/avatar3.jpg" />
                                             <div class="message">
                                                 <span class="arrow"></span>
                                                 <a href="javascript:;" class="name">Bob Nilson</a>
@@ -715,7 +708,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                             </div>
                                         </div>
                                         <div class="post in">
-                                            <img class="avatar" alt="" src="../assets/layouts/layout/img/avatar2.jpg" />
+                                            <img class="avatar" alt="" src="~/assets/layouts/layout/img/avatar2.jpg" />
                                             <div class="message">
                                                 <span class="arrow"></span>
                                                 <a href="javascript:;" class="name">Ella Wong</a>
@@ -724,7 +717,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                             </div>
                                         </div>
                                         <div class="post out">
-                                            <img class="avatar" alt="" src="../assets/layouts/layout/img/avatar3.jpg" />
+                                            <img class="avatar" alt="" src="~/assets/layouts/layout/img/avatar3.jpg" />
                                             <div class="message">
                                                 <span class="arrow"></span>
                                                 <a href="javascript:;" class="name">Bob Nilson</a>
@@ -733,7 +726,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                             </div>
                                         </div>
                                         <div class="post in">
-                                            <img class="avatar" alt="" src="../assets/layouts/layout/img/avatar2.jpg" />
+                                            <img class="avatar" alt="" src="~/assets/layouts/layout/img/avatar2.jpg" />
                                             <div class="message">
                                                 <span class="arrow"></span>
                                                 <a href="javascript:;" class="name">Ella Wong</a>
@@ -742,7 +735,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                             </div>
                                         </div>
                                         <div class="post out">
-                                            <img class="avatar" alt="" src="../assets/layouts/layout/img/avatar3.jpg" />
+                                            <img class="avatar" alt="" src="~/assets/layouts/layout/img/avatar3.jpg" />
                                             <div class="message">
                                                 <span class="arrow"></span>
                                                 <a href="javascript:;" class="name">Bob Nilson</a>
@@ -793,8 +786,8 @@ License: You must have a valid license purchased only from themeforest(the above
         </div>
         <!-- END FOOTER -->
         <!--[if lt IE 9]>
-        <script src="../assets/global/plugins/respond.min.js"></script>
-        <script src="../assets/global/plugins/excanvas.min.js"></script>
+        <script src="~/assets/global/plugins/respond.min.js"></script>
+        <script src="~/assets/global/plugins/excanvas.min.js"></script>
         <![endif]-->
         <!-- BEGIN CORE PLUGINS -->
         @Scripts.Render("~/CORE/PLUGINS/x")
@@ -813,6 +806,15 @@ License: You must have a valid license purchased only from themeforest(the above
         <!-- BEGIN THEME LAYOUT SCRIPTS -->
         @Scripts.Render("~/THEME/LAYOUT/SCRIPTS/x")>
         <!-- END THEME LAYOUT SCRIPTS -->
+
+        <script>
+            $("a.delcom").click(function () {
+                alert("ok");
+        $(this).parents("tr").remove();
+        return false;
+    });
+
+        </script>
         @RenderSection("scripts", required: false)
 </body>
 </html>

@@ -291,6 +291,12 @@
     <Content Include="Views\Comment\Index.cshtml" />
     <Content Include="Views\Comment\liste.cshtml" />
     <Content Include="Views\Comment\Create.cshtml" />
+    <Content Include="Views\Comment\report.cshtml" />
+    <Content Include="Views\Comment\Delete.cshtml" />
+    <Content Include="Views\Comment\photo.cshtml" />
+    <Content Include="Views\Comment\photocomment.cshtml" />
+    <Content Include="Views\Comment\idea.cshtml" />
+    <Content Include="Views\Comment\ideacomment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

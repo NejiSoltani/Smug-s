@@ -16,7 +16,7 @@ namespace Data.Models
             : base("Name=crowdContext")
         {
         }
-
+ 
         public DbSet<category> categories { get; set; }
         public DbSet<category_customer> category_customer { get; set; }
         public DbSet<category_user> category_user { get; set; }
@@ -40,6 +40,7 @@ namespace Data.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+
             modelBuilder.Configurations.Add(new categoryMap());
             modelBuilder.Configurations.Add(new category_customerMap());
             modelBuilder.Configurations.Add(new category_userMap());
@@ -60,6 +61,8 @@ namespace Data.Models
             modelBuilder.Configurations.Add(new shopMap());
             modelBuilder.Configurations.Add(new t_todoMap());
             modelBuilder.Configurations.Add(new userMap());
+           // modelBuilder.Entity<comment>().ToTable("comment");
+
         }
     }
 }
