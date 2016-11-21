@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="NotificationService.cs" />
     <Compile Include="ContactService.cs" />
     <Compile Include="DictionaryService.cs" />
     <Compile Include="PhotoService.cs" />

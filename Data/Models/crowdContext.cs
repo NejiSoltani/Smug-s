@@ -38,6 +38,7 @@ namespace Data.Models
         public DbSet<t_todo> t_todo { get; set; }
         public DbSet<user> users { get; set; }
         public DbSet<dictionary> dictionary { get; set; }
+        public DbSet<notification> notifications { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -63,6 +64,7 @@ namespace Data.Models
             modelBuilder.Configurations.Add(new t_todoMap());
             modelBuilder.Configurations.Add(new userMap());
             modelBuilder.Configurations.Add(new dictionaryMap());
+            modelBuilder.Configurations.Add(new NotificationMap());
             // modelBuilder.Entity<comment>().ToTable("comment");
 
         }

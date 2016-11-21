@@ -199,6 +199,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CommentController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\QuestionController.cs" />
@@ -299,6 +300,7 @@
     <Content Include="Views\Comment\ideacomment.cshtml" />
     <Content Include="Views\Comment\addkey.cshtml" />
     <Content Include="Views\Comment\listkey.cshtml" />
+    <Content Include="Views\Contact\list.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

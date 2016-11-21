@@ -24,6 +24,7 @@ namespace WebApp.Controllers
         {
             CommentService commserv = new CommentService();
             IEnumerable<comment> listecomment = commserv.GetMany();
+            listecomment.Count();
             return View(listecomment);
 
         }

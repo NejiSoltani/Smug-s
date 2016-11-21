@@ -57,6 +57,7 @@
     <Compile Include="entities\prize.cs" />
     <Compile Include="entities\product.cs" />
     <Compile Include="entities\question.cs" />
+    <Compile Include="entities\notification.cs" />
     <Compile Include="entities\quiz.cs" />
     <Compile Include="entities\reclamation.cs" />
     <Compile Include="entities\reservation.cs" />
