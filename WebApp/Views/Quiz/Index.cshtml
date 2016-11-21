@@ -1,0 +1,256 @@
+﻿@model WebApp.Models.DeuxClass
+
+@using Service;
+@using Data.Models;
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<h3 class="page-title">
+    List des idees
+
+</h3>
+<div class="row">
+    <div class="col-md-12">
+        <!-- BEGIN EXAMPLE TABLE PORTLET-->
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption font-dark">
+                    
+                    <a data-toggle="modal" href="#basic" class="btn  btn-info" data-target="#myModal2">
+                       New Quiz
+                    </a>
+                </div>
+                <div class="tools"> </div>
+            </div>
+            <div class="portlet-body">
+                <table class="table table-striped table-bordered table-hover" id="sample_1">
+                    
+                        <thead>
+                            <tr>
+                                <th> @Html.DisplayNameFor(model => model.quiz.idQuiz) </th>
+                                <th> @Html.DisplayNameFor(model => model.quiz.title) </th>
+                                <th> @Html.DisplayNameFor(model => model.quiz.startDate) </th>
+                                <th> @Html.DisplayNameFor(model => model.quiz.endDate) </th>
+                                <th class="none">
+
+
+                                  
+                    </th>
+
+
+                    <th> Delete </th>
+                    <th> Update </th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                        }
+                        @foreach (var item in Model.quizs)
+                        {
+                            <tr>
+                                <td> @Html.DisplayFor(modelItem => item.idQuiz)</td>
+                                <td> @Html.DisplayFor(modelItem => item.title)  </td>
+                                <td> @Html.DisplayFor(modelItem => item.startDate) </td>
+                                <td> @Html.DisplayFor(modelItem => item.endDate) </td>
+                                <td>
+                                    
+                                                    @{
+                                                        QuestionService questionservice = new QuestionService();
+                                                        List<question> listequestion = new List<question>();
+                                                        listequestion = questionservice.getQuestionByQuiz(item.idQuiz).ToList();
+
+
+
+                                                    }
+                                    <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="sample_2">
+
+                                        <thead>
+                                            <tr>
+                                                <th> Question </th>
+                                                <th>Reponse </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @{
+                                                foreach (var abbes in listequestion)
+                                                { 
+
+
+                                            <tr>
+
+                                                <td>
+                                                    @abbes.description
+
+                                                </td>
+                                                <td>@abbes.answer</td>
+                                            </tr>
+                                                } }
+                                        </tbody>
+                                               
+                                    </table>
+
+                                </td>
+
+
+                                <td>
+                                    <a class="btn  btn-danger" data-toggle="confirmation" data-original-title="Are you sure ?" href="/Quiz/Delete/@Html.DisplayFor(modelItem => item.idQuiz)"
+                                       title="">
+                                        <i class="fa fa-times"></i>  Delete
+                                    </a>
+                                </td>
+
+                                <td>
+                                    <a data-toggle="modal" href="#basic" class="btn  btn-info" data-target="#myModal@(item.idQuiz)">
+                                        update
+                                    </a>
+                                </td>
+
+
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@foreach (var item in Model.quizs)
+{
+    <div class="modal fade" id="myModal@(item.idQuiz)" tabindex="-1" role="basic" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title">Envoyer Email</h4>
+                </div>
+                <div class="modal-body">
+
+                    <form action="#" class="form-horizontal" id="form_sample_1">
+                        <div class="form-body">
+                            <div class="col-md-7">
+                                <input type="text" class="form-control" placeholder="" name="name" value="@item.title">
+                                <div class="form-control-focus"> </div>
+                                <span class="help-block">enter your full name</span>
+                            </div>
+                        </div>
+
+                    </form>
+
+
+
+                </div>
+
+
+
+                <div class="modal-footer">
+                    <button type="button" class="btn dark btn-outline" data-dismiss="modal">Annuler</button>
+                    <button type="button" class="btn green">Envoyer</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+}
+
+
+
+
+
+
+
+    <div class="modal fade" id="myModal2" tabindex="-1" role="basic" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title">Envoyer Email</h4>
+                </div>
+                <div class="modal-body">
+                  @using (Html.BeginForm("Create2", "Quiz", FormMethod.Post))
+                  {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-horizontal">
+                        <h4>quiz</h4>
+                        <hr />
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.quiz.title, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.quiz.title, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.quiz.title, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.quiz.endDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.quiz.endDate, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.quiz.endDate, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.quiz.score, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.quiz.score, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.quiz.score, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.quiz.startDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.quiz.startDate, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.quiz.startDate, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.quiz.customer_idUser, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.quiz.customer_idUser, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.quiz.customer_idUser, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.quiz.reviewer_idUser, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.quiz.reviewer_idUser, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.quiz.reviewer_idUser, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Create" class="btn btn-default" />
+                            </div>
+                        </div>
+                    </div>
+                  }
+
+                </div>
+
+
+
+                <div class="modal-footer">
+                    <button type="button" class="btn dark btn-outline" data-dismiss="modal">Annuler</button>
+                    <button type="button" class="btn green">Envoyer</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+

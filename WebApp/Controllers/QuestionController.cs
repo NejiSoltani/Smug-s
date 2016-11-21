@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebApp.Helpers;
+using WebApp.Models;
 
 namespace WebApp.Controllers
 {
@@ -14,7 +16,7 @@ namespace WebApp.Controllers
         public ActionResult Index()
         {
             QuestionService questionserv = new QuestionService();
-            IEnumerable<question> listequestion = questionserv.getTestById(1);
+            IEnumerable<question> listequestion = questionserv.GetMany();
 
             return View(listequestion);
         }
@@ -25,24 +27,34 @@ namespace WebApp.Controllers
             return View();
         }
 
+
         // GET: Question/Create
         public ActionResult Create()
         {
-            return View();
+            QuizService quizserv = new QuizService();
+           Question mv = new Question();
+
+            mv.Quizs= quizserv.GetMany().ToSelectListItems() ;
+            ////drodownlist
+        
+          
+            return View(mv);
         }
 
         // POST: Question/Create
         [HttpPost]
-        public ActionResult Create(question question)
+        public ActionResult Create(Question question)
         {
             try
             {
-                question q = new question();
-                
-                q.answer = question.answer;
-                q.description = question.description;                
+               // Question q = new Question();
+                question qd = new question();
+               // qd.idQuestion = 1;
+                qd.answer = question.answer;
+                qd.description = question.description;
+                qd.quiz_idQuiz = question.QuizId;
                 QuestionService questionserv = new QuestionService();
-                questionserv.Add(q);
+              questionserv.Add(qd);
                 questionserv.Commit();
                 return RedirectToAction("Index");
             }
@@ -55,6 +67,14 @@ namespace WebApp.Controllers
         // GET: Question/Edit/5
         public ActionResult Edit(int id)
         {
+            QuestionService questionserv = new QuestionService();
+
+            question c = new question();
+            c = questionserv.GetById(id);
+           // c.answer = "lolo";
+            questionserv.Update(c);
+            questionserv.Commit();
+
             return View();
         }
 
@@ -64,9 +84,15 @@ namespace WebApp.Controllers
         {
             try
             {
-                // TODO: Add update logic here
+                QuestionService questionserv = new QuestionService();
 
-                return RedirectToAction("Index");
+                question c = new question();
+                c = questionserv.GetById(id);
+                c.answer = "LoLo";
+                questionserv.Update(c);
+                questionserv.Commit();
+
+                return View();
             }
             catch
             {
@@ -77,7 +103,16 @@ namespace WebApp.Controllers
         // GET: Question/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            QuestionService questionserv = new QuestionService();
+
+            question c = new question();
+            c = questionserv.GetById(id);
+            questionserv.Delete(c);
+            questionserv.Commit();
+
+            return RedirectToAction("Index");
+
+            
         }
 
         // POST: Question/Delete/5
@@ -86,7 +121,13 @@ namespace WebApp.Controllers
         {
             try
             {
-                // TODO: Add delete logic here
+                QuestionService questionserv = new QuestionService();
+
+                question c = new question();
+                c = questionserv.GetById(id);
+                questionserv.Delete(c);
+                questionserv.Commit();
+
 
                 return RedirectToAction("Index");
             }

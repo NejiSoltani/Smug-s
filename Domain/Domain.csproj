@@ -59,6 +59,7 @@
     <Compile Include="entities\quiz.cs" />
     <Compile Include="entities\reclamation.cs" />
     <Compile Include="entities\reservation.cs" />
+    <Compile Include="entities\score.cs" />
     <Compile Include="entities\shop.cs" />
     <Compile Include="entities\t_todo.cs" />
     <Compile Include="entities\user.cs" />

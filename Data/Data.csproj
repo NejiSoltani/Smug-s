@@ -58,9 +58,25 @@
     <Compile Include="Infrastructure\IUnitOfWork.cs" />
     <Compile Include="Infrastructure\RepositoryBase.cs" />
     <Compile Include="Infrastructure\UnitOfWork.cs" />
-    <Compile Include="Migrations\201611191507569_qq.cs" />
-    <Compile Include="Migrations\201611191507569_qq.Designer.cs">
-      <DependentUpon>201611191507569_qq.cs</DependentUpon>
+    <Compile Include="Migrations\201611201732503_abbes.cs" />
+    <Compile Include="Migrations\201611201732503_abbes.Designer.cs">
+      <DependentUpon>201611201732503_abbes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611202041009_salima.cs" />
+    <Compile Include="Migrations\201611202041009_salima.Designer.cs">
+      <DependentUpon>201611202041009_salima.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611211041193_v.cs" />
+    <Compile Include="Migrations\201611211041193_v.Designer.cs">
+      <DependentUpon>201611211041193_v.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611211127143_gg.cs" />
+    <Compile Include="Migrations\201611211127143_gg.Designer.cs">
+      <DependentUpon>201611211127143_gg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611211238438_score.cs" />
+    <Compile Include="Migrations\201611211238438_score.Designer.cs">
+      <DependentUpon>201611211238438_score.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\crowdContext.cs" />
@@ -99,8 +115,20 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201611191507569_qq.resx">
-      <DependentUpon>201611191507569_qq.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201611201732503_abbes.resx">
+      <DependentUpon>201611201732503_abbes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611202041009_salima.resx">
+      <DependentUpon>201611202041009_salima.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611211041193_v.resx">
+      <DependentUpon>201611211041193_v.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611211127143_gg.resx">
+      <DependentUpon>201611211127143_gg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611211238438_score.resx">
+      <DependentUpon>201611211238438_score.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

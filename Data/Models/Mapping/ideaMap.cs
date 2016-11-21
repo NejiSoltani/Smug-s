@@ -27,6 +27,7 @@ namespace Data.Models.Mapping
             this.Property(t => t.dateDepot).HasColumnName("dateDepot");
             this.Property(t => t.statut).HasColumnName("statut");
             this.Property(t => t.subject).HasColumnName("subject");
+            this.Property(t => t.isReported).HasColumnName(" isReported");           
             this.Property(t => t.customer_idUser).HasColumnName("customer_idUser");
             this.Property(t => t.manager_idUser).HasColumnName("manager_idUser");
             this.Property(t => t.reviewer_idUser).HasColumnName("reviewer_idUser");

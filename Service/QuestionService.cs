@@ -24,5 +24,13 @@ namespace Service
                 .GetMany(x => x.idQuestion == id);
         }
 
+
+        public IEnumerable<question> getQuestionByQuiz(int id)
+        {
+
+            return u.getRepository<question>()
+                .GetMany(x => x.quiz_idQuiz == id);
+        }
+
     }
 }

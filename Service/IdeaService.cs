@@ -24,5 +24,58 @@ namespace Service
                 .GetMany(x => x.idIdea == id);
         }
 
+
+
+
+        public IEnumerable<idea> getReportedIdea()
+        {
+
+            return u.getRepository<idea>()
+                .GetMany(x => x.isReported == true);
+        }
+
+
+
+
+
+        public customer getCustomers(int id)
+        {           
+            CustomerService customerserv = new CustomerService();
+            return customerserv.GetById(id);         
+        }
+
+
+
+
+
+
+        public int getNbrofLikesById(int id)
+        {
+            int nb = 0;
+            List<idea> a = new List<idea>();
+
+            Like2Service like2service = new Like2Service();
+            List<like2> listelike = like2service.GetMany().ToList();
+            foreach(like2 l in listelike)
+            {
+                if(l.idea_idIdea==id)
+                {
+                    nb++;
+                }
+            }
+            return nb;
+            //return u.getRepository<idea>()
+            //    .GetMany(x => x.idIdea == id);
+        }
+
+
+
+
+
+
+
+
+
+
     }
 }

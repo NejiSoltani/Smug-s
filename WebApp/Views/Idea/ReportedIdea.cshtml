@@ -1,0 +1,131 @@
+﻿@model IEnumerable<Data.Models.idea>
+@using Service;
+@using Data.Models;
+@using System.Net.Mail;
+
+@{
+    ViewBag.Title = "ReportedIdea";
+}
+
+
+<h3 class="page-title">
+    Reported Ideas
+
+</h3>
+<div class="row">
+    <div class="col-md-12">
+        <!-- BEGIN EXAMPLE TABLE PORTLET-->
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption font-dark">
+                    <i class="icon-settings font-dark"></i>
+                    <span class="caption-subject bold uppercase">Buttons</span>
+                </div>
+                <div class="tools"> </div>
+            </div>
+            <div class="portlet-body">
+                <table class="table table-striped table-bordered table-hover" id="sample_1">
+                    <thead>
+                        <tr>
+                            <th> @Html.DisplayNameFor(model => model.idIdea) </th>
+                            <th> @Html.DisplayNameFor(model => model.content) </th>
+                            <th> @Html.DisplayNameFor(model => model.dateDepot) </th>
+                            <th> @Html.DisplayNameFor(model => model.statut) </th>
+                            <th> @Html.DisplayNameFor(model => model.subject) </th>
+                            <th>Envoyer Email</th>
+                            <th>Action</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                        }
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td> @Html.DisplayFor(modelItem => item.idIdea)</td>
+                                <td>@Html.DisplayFor(modelItem => item.content)  </td>
+                                <td> @Html.DisplayFor(modelItem => item.dateDepot) </td>
+                                <td> @Html.DisplayFor(modelItem => item.statut) </td>
+                                <td>@Html.DisplayFor(modelItem => item.subject) </td>
+                               <td>
+                                   
+                                       <a data-toggle="modal" href="#basic" class="btn btn-circle btn-icon-only red"   data-target="#EducationModal@(item.idIdea)">
+                                           <i class="fa fa-envelope"></i>
+                                       </a>
+</td>
+                                <td>
+                                    <a class="btn  btn-danger" data-toggle="confirmation" data-original-title="Are you sure ?" href="/Idea/Delete/@Html.DisplayFor(modelItem => item.idIdea)"
+                                       title="">
+                                        <i class="fa fa-times"></i>  Delete
+                                    </a>
+                                </td>
+
+
+                        </tr>
+                                    }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+@foreach (var item in Model)
+{
+<div class="modal fade" id="EducationModal@(item.idIdea)" tabindex="-1" role="basic" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">Envoyer Email</h4>
+            </div>
+            <div class="modal-body">@Html.DisplayFor(modelItem => item.idIdea) </div>
+            @{
+
+                IdeaService questionserv = new IdeaService();
+                customer c = new customer();
+
+                int a = @item.customer_idUser.Value;
+                c = questionserv.getCustomers(a);
+
+
+
+            }
+             @{
+                 
+                     MailMessage mail = new MailMessage();
+                     mail.From = new MailAddress("abbesbendaoud8@gmail.com", "SMUGS");
+                     mail.To.Add("themegamind.777@gmail.com");
+                     mail.IsBodyHtml = true;
+                     mail.Subject = "Registration";
+                     mail.Body = "Bonjour";
+                     mail.Priority = MailPriority.High;
+                     SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+                     //smtp.UseDefaultCredentials = true;
+                     smtp.Credentials = new System.Net.NetworkCredential("abbesbendaoud8@gmail.com", "AZERTYQUERTY15");
+                     smtp.EnableSsl = true;
+                     //smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+
+
+                     smtp.Send(mail);
+                 
+            }
+               
+            }
+                    Email <input type="text"  value="@c.email" />
+        
+                    <br />
+                    Message<input type="text"  value="" />
+        
+
+                    <div class="modal-footer">
+                <button type="button" class="btn dark btn-outline" data-dismiss="modal">Annuler</button>
+                <button type="button" class="btn green" >Envoyer</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+}

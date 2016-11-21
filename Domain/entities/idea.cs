@@ -10,6 +10,7 @@ namespace Data.Models
         public Nullable<System.DateTime> dateDepot { get; set; }
         public string statut { get; set; }
         public string subject { get; set; }
+        public bool isReported { get; set; }
         public Nullable<int> customer_idUser { get; set; }
         public Nullable<int> manager_idUser { get; set; }
         public Nullable<int> reviewer_idUser { get; set; }

@@ -18,7 +18,7 @@ namespace Data.Models.Mapping
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
 
             // Table & Column Mappings
-            this.ToTable("category_customer", "crowd");
+            this.ToTable("category_customer","crowd");
             this.Property(t => t.categories_idCategory).HasColumnName("categories_idCategory");
             this.Property(t => t.customers_idUser).HasColumnName("customers_idUser");
         }

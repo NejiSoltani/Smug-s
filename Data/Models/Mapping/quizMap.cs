@@ -12,8 +12,9 @@ namespace Data.Models.Mapping
 
             // Properties
             // Table & Column Mappings
-            this.ToTable("quiz", "crowd");
+            this.ToTable("quiz","crowd");
             this.Property(t => t.idQuiz).HasColumnName("idQuiz");
+            this.Property(t => t.title).HasColumnName("title");
             this.Property(t => t.endDate).HasColumnName("endDate");
             this.Property(t => t.score).HasColumnName("score");
             this.Property(t => t.startDate).HasColumnName("startDate");

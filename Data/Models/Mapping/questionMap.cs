@@ -24,12 +24,12 @@ namespace Data.Models.Mapping
                 .HasMaxLength(255);
 
             // Table & Column Mappings
-            this.ToTable("question", "crowd");
+            this.ToTable("question");
             this.Property(t => t.idQuestion).HasColumnName("idQuestion");
             this.Property(t => t.answer).HasColumnName("answer");
             this.Property(t => t.description).HasColumnName("description");
             this.Property(t => t.photo).HasColumnName("photo");
-            this.Property(t => t.quiz_idQuiz).HasColumnName("quiz_idQuiz");
+           // this.Property(t => t.quiz_idQuiz).HasColumnName("quiz_idQuiz");
         }
     }
 }
