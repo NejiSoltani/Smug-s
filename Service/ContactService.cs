@@ -8,7 +8,7 @@ using System.Web;
 
 namespace Service
 {
-    public class ContactService : Service<dictionary>
+    public class ContactService : Service<contact>
     {
         public static IDatabaseFactory db = new DatabaseFactory();
         public static IUnitOfWork u = new UnitOfWork(db);

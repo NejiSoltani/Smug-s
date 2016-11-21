@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using Service;
+@using Data.Models
+
+<!DOCTYPE html>
 <!--
 Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.3.6
 Version: 4.5.4
@@ -191,8 +194,14 @@ License: You must have a valid license purchased only from themeforest(the above
                                 <ul class="dropdown-menu-list scroller" style="height: 275px;" data-handle-color="#637283">
 
                                     @{
+                                        ContactService cs = new ContactService();
+                                        IEnumerable<contact> listecontact = cs.GetMany(x => x.type == "contact",x=>x.etat == "new");
+                                        IEnumerable<contact> listefeedback= cs.GetMany(x => x.type == "feedback");
 
                                      }
+
+@foreach (var item in listecontact)
+{
                                     <li>
                                         <a href="#">
                                             <span class="photo">
@@ -205,8 +214,8 @@ License: You must have a valid license purchased only from themeforest(the above
                                             <span class="message"> Vivamus sed auctor nibh congue nibh. auctor nibh auctor nibh... </span>
                                         </a>
                                     </li>
-                                   
-                                 
+}
+
                                 </ul>
                             </li>
                         </ul>

@@ -22,7 +22,7 @@ namespace Data.Models
         public DbSet<category_user> category_user { get; set; }
         public DbSet<comment> comments { get; set; }
         public DbSet<customer> customers { get; set; }
-        public DbSet<feedback> feedbacks { get; set; }
+        public DbSet<contact> contacts { get; set; }
         public DbSet<idea> ideas { get; set; }
         public DbSet<ideareviewer> ideareviewers { get; set; }
         public DbSet<like2> like2 { get; set; }
@@ -47,7 +47,7 @@ namespace Data.Models
             modelBuilder.Configurations.Add(new category_userMap());
             modelBuilder.Configurations.Add(new commentMap());
             modelBuilder.Configurations.Add(new customerMap());
-            modelBuilder.Configurations.Add(new feedbackMap());
+            modelBuilder.Configurations.Add(new contactMap());
             modelBuilder.Configurations.Add(new ideaMap());
             modelBuilder.Configurations.Add(new ideareviewerMap());
             modelBuilder.Configurations.Add(new like2Map());

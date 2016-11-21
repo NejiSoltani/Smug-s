@@ -48,7 +48,7 @@
     <Compile Include="entities\dictionary.cs" />
     <Compile Include="entities\comment.cs" />
     <Compile Include="entities\customer.cs" />
-    <Compile Include="entities\feedback.cs" />
+    <Compile Include="entities\contact.cs" />
     <Compile Include="entities\idea.cs" />
     <Compile Include="entities\ideareviewer.cs" />
     <Compile Include="entities\like2.cs" />
