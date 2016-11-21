@@ -45,6 +45,7 @@
     <Compile Include="entities\category.cs" />
     <Compile Include="entities\category_customer.cs" />
     <Compile Include="entities\category_user.cs" />
+    <Compile Include="entities\dictionary.cs" />
     <Compile Include="entities\comment.cs" />
     <Compile Include="entities\customer.cs" />
     <Compile Include="entities\feedback.cs" />

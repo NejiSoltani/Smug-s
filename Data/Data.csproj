@@ -58,9 +58,13 @@
     <Compile Include="Infrastructure\IUnitOfWork.cs" />
     <Compile Include="Infrastructure\RepositoryBase.cs" />
     <Compile Include="Infrastructure\UnitOfWork.cs" />
-    <Compile Include="Migrations\201611201050188_wqdwq.cs" />
-    <Compile Include="Migrations\201611201050188_wqdwq.Designer.cs">
-      <DependentUpon>201611201050188_wqdwq.cs</DependentUpon>
+    <Compile Include="Migrations\201611201928177_wadwa.cs" />
+    <Compile Include="Migrations\201611201928177_wadwa.Designer.cs">
+      <DependentUpon>201611201928177_wadwa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611201930385_wadwa1.cs" />
+    <Compile Include="Migrations\201611201930385_wadwa1.Designer.cs">
+      <DependentUpon>201611201930385_wadwa1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\crowdContext.cs" />
@@ -69,6 +73,7 @@
     <Compile Include="Models\Mapping\category_userMap.cs" />
     <Compile Include="Models\Mapping\commentMap.cs" />
     <Compile Include="Models\Mapping\customerMap.cs" />
+    <Compile Include="Models\Mapping\dictionaryMap.cs" />
     <Compile Include="Models\Mapping\feedbackMap.cs" />
     <Compile Include="Models\Mapping\ideaMap.cs" />
     <Compile Include="Models\Mapping\ideareviewerMap.cs" />
@@ -99,8 +104,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201611201050188_wqdwq.resx">
-      <DependentUpon>201611201050188_wqdwq.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201611201928177_wadwa.resx">
+      <DependentUpon>201611201928177_wadwa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611201930385_wadwa1.resx">
+      <DependentUpon>201611201930385_wadwa1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

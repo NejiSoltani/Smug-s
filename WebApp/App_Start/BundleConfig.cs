@@ -99,8 +99,8 @@ namespace WebApp
                  "~/assets/global/scripts/datatable.js",
                   "~/assets/global/plugins/datatables/datatables.min.js",
                    "~/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js",
-                    "~/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js"
-
+                    "~/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js",
+                    "~/assets/global/plugins/bootstrap-confirmation/bootstrap-confirmation.min.js"
 
                 ));
             bundles.Add(new ScriptBundle("~/THEME/GLOBAL/SCRIPTS/x").Include(
@@ -110,7 +110,8 @@ namespace WebApp
           "~/assets/pages/scripts/dashboard.min.js"
           ));
             bundles.Add(new ScriptBundle("~/PAGE/LEVEL/SCRIPTS2/x").Include(
-    "~/assets/pages/scripts/table-datatables-buttons.min.js"
+    "~/assets/pages/scripts/table-datatables-buttons.min.js",
+     "~/assets/pages/scripts/ui-confirmations.min.js"
     ));
             bundles.Add(new ScriptBundle("~/THEME/LAYOUT/SCRIPTS/x").Include(
   "~/assets/layouts/layout/scripts/layout.min.js",

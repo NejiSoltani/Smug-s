@@ -91,10 +91,11 @@
                                 <td> @Html.DisplayFor(modelItem => item.idea_idIdea) </td>
                                 <td> @Html.DisplayFor(modelItem => item.photo_idPhoto) </td>
                                 <td> 
-                                
-                                <a href="/Comment/Delete/@Html.DisplayFor(modelItem => item.idComment)" class="btn btn-danger" id="delcom">
-    <i class="fa fa-times"></i> Delete
-</a> </td>
+                                    <a class="btn  btn-danger" data-toggle="confirmation" data-original-title="Are you sure ?" href="/Comment/Delete/@Html.DisplayFor(modelItem => item.idComment)"
+                                            title="">
+                                        <i class="fa fa-times"></i>  Delete
+                                    </a>
+                                 </td>
                             </tr>
                         }
 

@@ -68,6 +68,40 @@ namespace WebApp.Controllers
 
         }
 
+        public ActionResult addkey()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult addkey(dictionary dic)
+        {
+            try
+            {
+                dictionary  d = new dictionary();
+
+            d.key = dic.key;
+            d.val = dic.val;
+            DictionaryService divserv = new DictionaryService();
+            divserv.Add(d);
+            divserv.Commit();
+            return RedirectToAction("addkey");
+            }
+            catch
+            {
+                return View();
+            }
+
+        }
+
+        public ActionResult listkey()
+        {
+            DictionaryService divserv = new DictionaryService();
+            IEnumerable<dictionary> listedic= divserv.GetMany();
+            return View(listedic);
+     
+        }
+
         // GET: Comment/Details/5
         public ActionResult Details(int id)
         {
@@ -127,8 +161,8 @@ namespace WebApp.Controllers
             c = commserv.GetById(id);
             commserv.Delete(c);
             commserv.Commit();
-            commserv.Dispose();
-            return View();
+           
+            return RedirectToAction("report");
         }
 
         // POST: Comment/Delete/5
@@ -143,9 +177,9 @@ namespace WebApp.Controllers
                 c = commserv.GetById(id);
                 commserv.Delete(c);
                 commserv.Commit();
-                commserv.Dispose();
+                
 
-                return RedirectToAction("Create");
+                return RedirectToAction("report");
             }
             catch
             {

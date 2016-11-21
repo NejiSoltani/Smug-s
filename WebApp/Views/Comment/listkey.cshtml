@@ -1,0 +1,398 @@
+﻿@model IEnumerable<Data.Models.dictionary>
+
+@{
+    ViewBag.Title = "listkey";
+}
+
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <a href="index.html">Home</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <a href="#">Posts</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <span>Commentaires</span>
+        </li>
+    </ul>
+    <div class="page-toolbar">
+        <div class="btn-group pull-right">
+            <button type="button" class="btn green btn-sm btn-outline dropdown-toggle" data-toggle="dropdown">
+                Actions
+                <i class="fa fa-angle-down"></i>
+            </button>
+            <ul class="dropdown-menu pull-right" role="menu">
+                <li>
+                    <a href="#">
+                        <i class="icon-bell"></i> Action
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="icon-shield"></i> Another action
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="icon-user"></i> Something else here
+                    </a>
+                </li>
+                <li class="divider"> </li>
+                <li>
+                    <a href="#">
+                        <i class="icon-bag"></i> Separated link
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<h3 class="page-title">
+    Commentaires
+    <small>liste</small>
+</h3>
+<div class="row">
+    <div class="col-md-6">
+        <div class="portlet-body">
+            <div class="mt-element-list">
+                <div class="mt-list-head list-todo red">
+                    <div class="list-head-title-container">
+                        <h3 class="list-title">Bad words</h3>
+                        <div class="list-head-count">
+                    
+                            <div class="list-head-count-item">
+                                <i class="fa fa-frown-o"></i> 34
+                            </div>
+                        </div>
+                    </div>
+                    <a href="javascript:;">
+                        <div class="list-count pull-right ">
+                            <i class="fa fa-plus"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="mt-list-container list-todo">
+                    <div class="list-todo-line red"></div>
+                    <ul>
+                        <li class="mt-list-item">
+                            <div class="list-todo-icon bg-white font-blue-steel">
+                                <i class="fa fa-minus"></i>
+                            </div>
+                            <div class="list-todo-item red">
+                                <a class="list-toggle-container font-white" data-toggle="collapse" href="#task-1-1" aria-expanded="false">
+                                    <div class="list-toggle done uppercase">
+                                        <div class="list-toggle-title bold">Metronic Database</div>
+                                        <div class="badge badge-default pull-right bold">3</div>
+                                    </div>
+                                </a>
+                                <div class="task-list panel-collapse collapse in" id="task-1-1">
+                                    <ul>
+                                        @foreach (var item in Model)
+                                        {
+                                            <li class="task-list-item done">
+                                               
+                                                <div class="task-status">
+                                                
+                                                    <a class="pending" href="javascript:;">
+                                                        <i class="fa fa-close"></i>
+                                                    </a>
+                                                </div>
+                                                <div class="task-content">
+                                                    <h4 class="uppercase bold">
+                                                        <a href="javascript:;">@Html.DisplayFor(modelItem => item.key)</a>
+                                                    </h4>
+                                                   
+                                                </div>
+                                            </li>
+                                        }
+                                    </ul>
+                                    <div class="task-footer bg-grey">
+                                        <div class="row">
+                                            <div class="col-xs-6">
+                                                <a class="task-trash" href="javascript:;">
+                                                    <i class="fa fa-trash"></i>
+                                                </a>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <a class="task-add" href="javascript:;">
+                                                    <i class="fa fa-plus"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="mt-list-item">
+                            <div class="list-todo-icon bg-white font-green-meadow">
+                                <i class="fa fa-minus"></i>
+                            </div>
+                            <div class="list-todo-item red">
+                                <a class="list-toggle-container font-white" data-toggle="collapse" href="#task-2-1" aria-expanded="false">
+                                    <div class="list-toggle done uppercase">
+                                        <div class="list-toggle-title bold">Creative Artwork</div>
+                                        <div class="badge badge-default pull-right bold">3</div>
+                                    </div>
+                                </a>
+                                <div class="task-list panel-collapse collapse" id="task-2-1">
+                                    <ul>
+                                        <li class="task-list-item done">
+                                           
+                                            <div class="task-status">
+                                          
+                                                <a class="pending" href="javascript:;">
+                                                    <i class="fa fa-close"></i>
+                                                </a>
+                                            </div>
+                                            <div class="task-content">
+                                                <h4 class="uppercase bold">
+                                                    <a href="javascript:;">Concept Design</a>
+                                                </h4>
+                                               
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <div class="task-footer bg-grey">
+                                        <div class="row">
+                                            <div class="col-xs-6">
+                                                <a class="task-trash" href="javascript:;">
+                                                    <i class="fa fa-trash"></i>
+                                                </a>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <a class="task-add" href="javascript:;">
+                                                    <i class="fa fa-plus"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="mt-list-item">
+                            <div class="list-todo-icon bg-white font-yellow-crusta">
+                                <i class="fa fa-minus"></i>
+                            </div>
+                            <div class="list-todo-item red">
+                                <a class="list-toggle-container" data-toggle="collapse" href="#task-3-1" aria-expanded="false">
+                                    <div class="list-toggle done uppercase">
+                                        <div class="list-toggle-title bold">Content Development</div>
+                                        <div class="badge badge-default pull-right bold">2</div>
+                                    </div>
+                                </a>
+                                <div class="task-list panel-collapse collapse" id="task-3-1">
+                                    <ul>
+                                        <li class="task-list-item done">
+                                       
+                                            <div class="task-status">
+                                             
+                                                <a class="pending" href="javascript:;">
+                                                    <i class="fa fa-close"></i>
+                                                </a>
+                                            </div>
+                                            <div class="task-content">
+                                                <h4 class="uppercase bold">
+                                                    <a href="javascript:;">Artwork Slicing</a>
+                                                </h4>
+                                               
+                                            </div>
+                                        </li>
+
+                                    </ul>
+                                    <div class="task-footer bg-grey">
+                                        <div class="row">
+                                            <div class="col-xs-6">
+                                                <a class="task-trash" href="javascript:;">
+                                                    <i class="fa fa-trash"></i>
+                                                </a>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <a class="task-add" href="javascript:;">
+                                                    <i class="fa fa-plus"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="portlet-body">
+            <div class="mt-element-list">
+                <div class="mt-list-head list-todo green">
+                    <div class="list-head-title-container">
+                        <h3 class="list-title">Good words</h3>
+                        <div class="list-head-count">
+                      
+                            <div class="list-head-count-item">
+                                <i class="fa fa-smile-o"></i> 34
+                            </div>
+                        </div>
+                    </div>
+                    <a href="javascript:;">
+                        <div class="list-count pull-right ">
+                            <i class="fa fa-plus"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="mt-list-container list-todo">
+                    <div class="list-todo-line red"></div>
+                    <ul>
+                        <li class="mt-list-item">
+                            <div class="list-todo-icon bg-white font-blue-steel">
+                                <i class="fa fa-plus"></i>
+                            </div>
+                            <div class="list-todo-item green">
+                                <a class="list-toggle-container font-white" data-toggle="collapse" href="#task-1-2" aria-expanded="false">
+                                    <div class="list-toggle done uppercase">
+                                        <div class="list-toggle-title bold">Metronic Database</div>
+                                        <div class="badge badge-default pull-right bold">3</div>
+                                    </div>
+                                </a>
+                                <div class="task-list panel-collapse collapse in" id="task-1-2">
+                                    <ul>
+                                        @foreach (var item in Model)
+                                        {
+                                            <li class="task-list-item done">
+                                             
+                                                <div class="task-status">
+                                               
+                                                    <a class="pending" href="javascript:;">
+                                                        <i class="fa fa-close"></i>
+                                                    </a>
+                                                </div>
+                                                <div class="task-content">
+                                                    <h4 class="uppercase bold">
+                                                        <a href="javascript:;">@Html.DisplayFor(modelItem => item.key)</a>
+                                                    </h4>
+                                                   
+                                                </div>
+                                            </li>
+                                        }
+                                    </ul>
+                                    <div class="task-footer bg-grey">
+                                        <div class="row">
+                                            <div class="col-xs-6">
+                                                <a class="task-trash" href="javascript:;">
+                                                    <i class="fa fa-trash"></i>
+                                                </a>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <a class="task-add" href="javascript:;">
+                                                    <i class="fa fa-plus"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="mt-list-item">
+                            <div class="list-todo-icon bg-white font-green-meadow">
+                                <i class="fa fa-plus"></i>
+                            </div>
+                            <div class="list-todo-item green">
+                                <a class="list-toggle-container font-white" data-toggle="collapse" href="#task-2-2" aria-expanded="false">
+                                    <div class="list-toggle done uppercase">
+                                        <div class="list-toggle-title bold">Creative Artwork</div>
+                                        <div class="badge badge-default pull-right bold">3</div>
+                                    </div>
+                                </a>
+                                <div class="task-list panel-collapse collapse" id="task-2-2">
+                                    <ul>
+                                        <li class="task-list-item done">
+                                           
+                                            <div class="task-status">
+                                            
+                                                <a class="pending" href="javascript:;">
+                                                    <i class="fa fa-close"></i>
+                                                </a>
+                                            </div>
+                                            <div class="task-content">
+                                                <h4 class="uppercase bold">
+                                                    <a href="javascript:;">Concept Design</a>
+                                                </h4>
+                                               
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <div class="task-footer bg-grey">
+                                        <div class="row">
+                                            <div class="col-xs-6">
+                                                <a class="task-trash" href="javascript:;">
+                                                    <i class="fa fa-trash"></i>
+                                                </a>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <a class="task-add" href="javascript:;">
+                                                    <i class="fa fa-plus"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="mt-list-item">
+                            <div class="list-todo-icon bg-white font-yellow-crusta">
+                                <i class="fa fa-plus"></i>
+                            </div>
+                            <div class="list-todo-item green">
+                                <a class="list-toggle-container" data-toggle="collapse" href="#task-3-2" aria-expanded="false">
+                                    <div class="list-toggle done uppercase">
+                                        <div class="list-toggle-title bold">Content Development</div>
+                                        <div class="badge badge-default pull-right bold">2</div>
+                                    </div>
+                                </a>
+                                <div class="task-list panel-collapse collapse" id="task-3-2">
+                                    <ul>
+                                        <li class="task-list-item done">
+                                           
+                                            <div class="task-status">
+                                           
+                                                <a class="pending" href="javascript:;">
+                                                    <i class="fa fa-close"></i>
+                                                </a>
+                                            </div>
+                                            <div class="task-content">
+                                                <h4 class="uppercase bold">
+                                                    <a href="javascript:;">Artwork Slicing</a>
+                                                </h4>
+                                                
+                                            </div>
+                                        </li>
+
+                                    </ul>
+                                    <div class="task-footer bg-grey">
+                                        <div class="row">
+                                            <div class="col-xs-6">
+                                                <a class="task-trash" href="javascript:;">
+                                                    <i class="fa fa-trash"></i>
+                                                </a>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <a class="task-add" href="javascript:;">
+                                                    <i class="fa fa-plus"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
