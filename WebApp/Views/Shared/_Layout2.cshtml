@@ -69,6 +69,9 @@ License: You must have a valid license purchased only from themeforest(the above
                     @{ 
                         NotificationService ns = new NotificationService();
                         IEnumerable<notification> listenotification = ns.GetMany();
+                        CustomerService cus = new CustomerService();
+                        IEnumerable<customer> listeconstumers = cus.GetMany();
+                       
 
                     }}
                     <li class="dropdown dropdown-extended dropdown-notification" id="header_notification_bar">
@@ -85,21 +88,30 @@ License: You must have a valid license purchased only from themeforest(the above
                             </li>
                             <li>
                                 <ul class="dropdown-menu-list scroller" style="height: 250px;" data-handle-color="#637283">
-
+                                   
 @foreach (var item in listenotification)
 {
-                                    <li>
-                                        <a href="javascript:;">
-                                            <span class="time">just now</span>
+    var aa="";
+    System.TimeSpan diff1 = DateTime.Now.Subtract((DateTime)item.date);
+    if (diff1.TotalMinutes <= 60) {  aa = "just now"; }
+    else if (diff1.TotalHours < 1) {  aa = String.Format("{0:0}", diff1.TotalMinutes)  + "mins ago"; }
+    else if (diff1.TotalDays < 1) {  aa = String.Format("{0:0}", diff1.TotalHours) + "hrs ago"; }
+    else  {  aa = String.Format("{0:0}", diff1.TotalDays) + "days ago"; }
+                                            <li>
+
+                                    <a href="javascript:;">
+
+                                        <span class="time"> @aa </span>
                                             <span class="details">
                                                 <span class="label label-sm label-icon label-success">
-                                                    <i class="fa fa-plus"></i>
-                                                </span> New user registered.
+                                                    <i class="fa fa-plus">  </i>
+                                                </span>@item.content
                                             </span>
                                         </a>
                                     </li>
 
 }
+                           
 
                                 </ul>
                             </li>
@@ -114,7 +126,7 @@ License: You must have a valid license purchased only from themeforest(the above
                         IEnumerable<contact> listecontact = cs.GetMany(x => x.type == "contact", x => x.etat == "new");
                         IEnumerable<contact> listefeedback = cs.GetMany(x => x.type == "feedback", x => x.etat == "new");
 
-                    
+
 
                     }
                     <li class="dropdown dropdown-extended dropdown-inbox" id="header_inbox_bar">
@@ -136,16 +148,17 @@ License: You must have a valid license purchased only from themeforest(the above
 
 @foreach (var item in listecontact)
 {
+    var user = cus.GetById((int)item.customer_idUser);
                                     <li>
                                         <a href="#">
                                             <span class="photo">
                                                 <img src="~/assets/layouts/layout3/img/avatar2.jpg" class="img-circle" alt="">
                                             </span>
                                             <span class="subject">
-                                                <span class="from"> Lisa Wong </span>
-                                                <span class="time">Just Now </span>
+                                                <span class="from"> @user.firstName @user.lastName </span>
+                                                <span class="time">@item.date </span>
                                             </span>
-                                            <span class="message"> Vivamus sed auctor nibh congue nibh. auctor nibh auctor nibh... </span>
+                                            <span class="message"> @item.content </span>
                                         </a>
                                     </li>
 }
@@ -157,7 +170,7 @@ License: You must have a valid license purchased only from themeforest(the above
                     <!-- END INBOX DROPDOWN -->
                     <!-- BEGIN TODO DROPDOWN -->
                     <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
-                    <li class="dropdown dropdown-extended dropdown-tasks" id="header_task_bar">
+                    <li class="dropdown dropdown-extended dropdown-inbox" id="header_inbox_bar">
                         <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
                             <i class="icon-feed"></i>
                             <span class="badge badge-default"> @listefeedback.Count() </span>
@@ -174,16 +187,17 @@ License: You must have a valid license purchased only from themeforest(the above
                                 <ul class="dropdown-menu-list scroller" style="height: 275px;" data-handle-color="#637283">
                                     @foreach (var item in listefeedback)
                                     {
+                                        var user = cus.GetById((int)item.customer_idUser);
                                         <li>
                                             <a href="#">
                                                 <span class="photo">
                                                     <img src="~/assets/layouts/layout3/img/avatar2.jpg" class="img-circle" alt="">
                                                 </span>
                                                 <span class="subject">
-                                                    <span class="from"> Lisa Wong </span>
-                                                    <span class="time">Just Now </span>
+                                                    <span class="from">@user.firstName @user.lastName  </span>
+                                                    <span class="time">@item.date </span>
                                                 </span>
-                                                <span class="message"> Vivamus sed auctor nibh congue nibh. auctor nibh auctor nibh... </span>
+                                                <span class="message"> @item.content  </span>
                                             </a>
                                         </li>
                                     }
@@ -360,7 +374,7 @@ License: You must have a valid license purchased only from themeforest(the above
                     <li class="nav-item  ">
                         <a href="javascript:;" class="nav-link nav-toggle">
                             <i class="icon-diamond"></i>
-                            <span class="title">Satistique</span>
+                            <span class="title">Statistics</span>
                             <span class="arrow"></span>
                         </a>
                         <ul class="sub-menu">
@@ -688,13 +702,15 @@ License: You must have a valid license purchased only from themeforest(the above
         <!-- END THEME LAYOUT SCRIPTS -->
 
         <script>
-            $("a.delcom").click(function () {
-                alert("ok");
-        $(this).parents("tr").remove();
-        return false;
+            $("#keyword").on("keyup",function () {
+               
+                $("#submitt").click();
+                
     });
 
         </script>
+        @Scripts.Render("~/bundles/jqueryunob")
+
         @RenderSection("scripts", required: false)
 </body>
 </html>

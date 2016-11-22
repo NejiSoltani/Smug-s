@@ -1,7 +1,20 @@
-﻿@model IEnumerable<Data.Models.idea>
+﻿@model string
 
 @{
     ViewBag.Title = "idea";
+}
+
+@{
+    ViewBag.Title = "Index";
+    AjaxOptions options = new AjaxOptions
+    {
+        UpdateTargetId = "searchResult",
+
+        InsertionMode = InsertionMode.Replace,
+        LoadingElementId = "divLoading",
+   
+
+    };
 }
 <div class="page-bar">
     <ul class="page-breadcrumb">
@@ -63,6 +76,16 @@
                     <div class="caption-desc font-grey-cascade"> Default list element style. Activate by adding <pre class="mt-code">.list-news</pre> class to the <pre class="mt-code">ul</pre> element. </div>
                 </div>
             </div>
+            @using (Ajax.BeginForm("Searchidea",null, options, new { id = "form11" }))
+            {
+                <div id="divLoading" style="color: red; width: 200px; background-color: yellow; fontsize: larger; display: none; position: absolute;">
+                    Loading ....
+                </div>
+                <div>
+                    <input id="keyword" name="keyword" type="text" value="" >
+                   <input type="submit" value="awdwa" id="submitt" style="visibility:hidden"/>
+                </div>
+            }
             <div class="portlet-body">
                 <div class="mt-element-list">
                     <div class="mt-list-head list-news font-white bg-blue">
@@ -72,24 +95,10 @@
                         </div>
                     </div>
                     <div class="mt-list-container list-news">
-                        <ul>
-@foreach (var item in Model)
-{
-                            <li class="mt-list-item">
-                                <div class="list-icon-container">
-                                    <a href="/Comment/ideacomment/@Html.DisplayFor(modelItem => item.idIdea)">
-                                        <i class="fa fa-angle-right"></i>
-                                    </a>
-                                </div>
-                                <div class="list-datetime bold uppercase font-green"> @Html.DisplayFor(modelItem => item.dateDepot) </div>
-                                <div class="list-item-content">
-                                    <h3 class="uppercase">
-                                        <a href="/Comment/ideacomment/@Html.DisplayFor(modelItem => item.idIdea)">@Html.DisplayFor(modelItem => item.subject)</a>
-                                    </h3>
-                                    <p>@Html.DisplayFor(modelItem => item.content)</p>
-                                </div>
-                            </li>
-}
+                        <ul id="searchResult">
+                            
+                                @Html.Action("Searchidea", new { keyword = "" })
+                           
 
                         </ul>
                     </div>

@@ -16,21 +16,25 @@ namespace Service
         public NotificationService() : base(u)
         {
         }
-
-
-     /*   public IEnumerable<comment> getTestById(int id)
+        public customer getUserByIdUser(int id)
         {
-
-            return u.getRepository<comment>()
-                .GetMany(x => x.idComment == id);
+                       return u.getRepository<customer>()
+                .Get(x => x.idUser == id);
         }
 
-        public IEnumerable<comment> getAll()
-        {
+        /*   public IEnumerable<comment> getTestById(int id)
+           {
 
-            return u.getRepository<comment>()
-                .GetMany();
-        }*/
+               return u.getRepository<comment>()
+                   .GetMany(x => x.idComment == id);
+           }
+
+           public IEnumerable<comment> getAll()
+           {
+
+               return u.getRepository<comment>()
+                   .GetMany();
+           }*/
 
     }
 }

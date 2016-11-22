@@ -3,6 +3,7 @@ using Data.Models;
 using Service;
 using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -12,6 +13,8 @@ namespace WebApp.Controllers
 {
     public class CommentController : Controller
     {
+
+
         // GET: Comment
         public ActionResult Index()
         {
@@ -47,10 +50,26 @@ namespace WebApp.Controllers
 
         public ActionResult idea()
         {
+  
+            return View();
+
+        }
+
+        public ActionResult smsrest()
+        {
+
+            return View();
+
+        }
+
+        public PartialViewResult Searchidea(string keyword)
+        {
+            System.Threading.Thread.Sleep(2000);
             IdeaService ideaserv = new IdeaService();
             IEnumerable<idea> listeidea = ideaserv.GetMany();
-            return View(listeidea);
-
+            var data = listeidea.Where(f =>
+            f.content.StartsWith(keyword)).ToList();
+            return PartialView(data);
         }
 
         public ActionResult ideacomment(int id)
